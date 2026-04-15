@@ -32,7 +32,7 @@ A modern, highly customizable theme for Pterodactyl Panel with glassmorphism eff
 Run the installer script on your Pterodactyl Panel server:
 
 ```bash
-curl -ssl https://raw.githubusercontent.com/denzivps/stellar-theme/refs/heads/main/theme.sh | sudo bash
+curl -ssl https://raw.githubusercontent.com/denzivps/nova-theme-remake/refs/heads/main/theme.sh | sudo bash
 ```
 
 ### Manual Installation
