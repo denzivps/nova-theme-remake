@@ -1,0 +1,245 @@
+/* ============================================
+   NOVA THEME BUTTON STYLES
+   ============================================ */
+
+.button {
+    @apply px-4 py-2 inline-flex items-center justify-center;
+    @apply text-base font-medium;
+    @apply focus:ring-[3px] focus:ring-offset-2 focus:ring-offset-gray-700 focus:ring-opacity-50;
+
+    border-radius: var(--borderradius);
+    font-family: var(--font-sans);
+    letter-spacing: 0.025em;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+
+    /* Sizing Controls */
+    &.small {
+        @apply px-4 py-0 h-8 font-normal text-sm focus:ring-2;
+    }
+
+    &.large {
+        @apply px-5 py-3;
+    }
+
+    &.secondary {
+        @apply text-gray-50 bg-transparent;
+
+        &:disabled {
+            background: transparent !important;
+        }
+    }
+
+    &:disabled {
+        @apply cursor-not-allowed;
+        opacity: 0.6;
+    }
+
+    &.square {
+        @apply p-0 w-12 h-12;
+
+        &.small {
+            @apply w-8 h-8;
+        }
+    }
+
+    /* Hover lift effect */
+    &:hover:not(:disabled) {
+        transform: translateY(-1px);
+    }
+
+    /* Ripple effect on click */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s ease, height 0.3s ease;
+    }
+
+    &:active::after {
+        width: 200%;
+        height: 200%;
+    }
+}
+
+/* Primary Button - Nova Style with Glow */
+.primary {
+    @apply text-white;
+    background: var(--gradient-primary);
+    background-color: var(--primary);
+    border-radius: var(--borderradius);
+    box-shadow: var(--shadow-sm);
+    border: none;
+
+    &:hover:not(:disabled) {
+        background: var(--gradient-primary);
+        background-color: var(--primary-hover);
+        box-shadow: var(--shadow-primary);
+        transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--primary-hover);
+        transform: translateY(0);
+        box-shadow: var(--shadow-sm);
+    }
+
+    &.secondary {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+
+        &:hover:not(:disabled) {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--primary-hover);
+        }
+    }
+
+    &:disabled {
+        @apply opacity-75;
+        background: var(--color-5);
+        cursor: not-allowed;
+    }
+}
+
+/* Text/Ghost Button */
+.text {
+    @apply text-gray-50;
+    @apply focus:ring-gray-300 focus:ring-opacity-50;
+    background-color: var(--text);
+    border-radius: var(--borderradius);
+    box-shadow: var(--shadow-sm);
+    border: none;
+
+    &:hover:not(:disabled) {
+        background-color: var(--text-hover);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--text-hover);
+        transform: translateY(0);
+    }
+
+    &.secondary {
+        @apply text-neutral-50 hover:text-gray-50;
+        background: transparent;
+        border: 2px solid var(--text);
+
+        &:hover:not(:disabled) {
+            background-color: var(--text);
+            color: white;
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--text);
+        }
+    }
+
+    &:disabled {
+        @apply opacity-75;
+        cursor: not-allowed;
+    }
+}
+
+/* Danger Button - Enhanced */
+.danger {
+    @apply text-white;
+    @apply focus:ring-red-400 focus:ring-opacity-75;
+    background: linear-gradient(135deg, var(--danger) 0%, var(--danger-hover) 100%);
+    background-color: var(--danger);
+    border-radius: var(--borderradius);
+    box-shadow: var(--shadow-sm);
+    border: none;
+
+    &:hover:not(:disabled) {
+        background: linear-gradient(135deg, var(--danger-hover) 0%, var(--danger) 100%);
+        background-color: var(--danger-hover);
+        box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+        transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--danger-hover);
+        transform: translateY(0);
+    }
+
+    &.secondary {
+        @apply hover:text-white text-neutral-50;
+        background: transparent;
+        border: 2px solid var(--danger);
+        color: var(--danger);
+
+        &:hover:not(:disabled) {
+            background-color: var(--danger);
+            color: white;
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--danger);
+        }
+    }
+
+    &:disabled {
+        @apply opacity-75;
+        cursor: not-allowed;
+    }
+}
+
+/* Accent Button - Nova Style Cyan */
+.accent {
+    @apply text-white;
+    background: var(--gradient-accent);
+    border-radius: var(--borderradius);
+    box-shadow: var(--shadow-sm);
+    border: none;
+
+    &:hover:not(:disabled) {
+        box-shadow: var(--shadow-glow);
+        transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    &:disabled {
+        @apply opacity-75;
+        cursor: not-allowed;
+    }
+}
+
+/* Glass Button - Glassmorphism Style */
+.glass {
+    @apply text-white;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--borderradius);
+
+    &:hover:not(:disabled) {
+        background: var(--glass-bg-light);
+        border-color: var(--primary);
+        box-shadow: var(--shadow-glow);
+    }
+
+    &:disabled {
+        @apply opacity-75;
+        cursor: not-allowed;
+    }
+}
