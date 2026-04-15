@@ -26,7 +26,7 @@ run_step() {
 }
 
 # --- CONFIGURATIE ---
-THEME_URL="https://github.com/denzivps/stellar-theme/archive/refs/heads/main.tar.gz"
+THEME_URL="https://github.com/denzivps/nova-theme-remake/archive/refs/tags/no.tar.gz"
 TEMP_DIR=$(mktemp -d)
 PTERO_DIR="/var/www/pterodactyl"
 
